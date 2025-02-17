@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Update a task
+{% endblock %}
+
+{% block content %}
+    {% for message in messages %} 
+        <p style="font-size: 20px; display:inline; color : red;">!!</p>
+        <p style="font-size: 20px; display:inline; color : white;">
+            {{ message }}
+        </p>
+        <p style="font-size: 20px; display:inline; color : red;">!!</p>
+
+    {% endfor %}
+    <h1>Here you can delete the form of your choosing.</h1>
+    <br>
+    <p style="font-size: 20px; display:inline; color : red;">!!!</p>
+    <p style="font-size:23px;display:inline;">Are you sure you want to delete task : {{task}} ?</p>
+    <p style="font-size: 20px; display:inline; color : red;">!!!</p>
+    <br>
+    <p style="font-size: 20px; display:inline; color : red;">!!!</p>
+    <p style="font-size: 21px; display:inline;">If yes press the button "delete" to delete the task</p>
+    <p style="font-size: 20px; display:inline; color : red;">!!!</p>
+    <br>
+
+    <form style="font-size:25px;display:inline;"action="" method="POST">
+        {% csrf_token %}
+        <br>
+        {{form}}
+        <input style = "display:inline; font-size:25px; "type = "submit" value="Delete">
+    </form>
+{% endblock %}

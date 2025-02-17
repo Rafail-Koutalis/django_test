@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Update a task
+{% endblock %}
+
+{% block content %}
+
+    {% for message in messages %}
+            
+        <div style="font-size: 20px; display:inline; color : green;">✔✔✔</div>
+        <div style="font-size:20px; color:white; display:inline;">
+            {{ message }}
+        </div>
+        <div style="font-size: 20px; display:inline; color : green;">✔✔✔</div>
+        <br>
+
+    {% endfor %}
+    <h1>Here you can write the new description of your data.</h1>
+    <h1 style="font-size:17px;">Please fill in up to 400 characters including spaces.</h1>
+    <br>
+
+    <form style="font-size:25px; display:inline;"action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input style = "display:inline; font-size:25px; "type = "submit">Submit</input>
+    </form>
+{% endblock %}

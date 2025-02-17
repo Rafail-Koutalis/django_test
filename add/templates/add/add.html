@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+    Adding 
+{% endblock %}
+
+{% block content %}
+    
+    {% for message in messages %}
+        <div style="font-size: 20px; display:inline; color : green;">✔✔✔</div>
+        <div style="font-size:20px; color:white; display:inline;">
+            {{ message }}
+        </div>
+        <div style="font-size: 20px; display:inline; color : green;">✔✔✔</div>
+        <br>
+    {%endfor%}
+
+    <div class = "center-of-screen">
+        <h1>Adding Tasks</h1>
+        <h1 style="font-size: 18px;">Task name can be up to 20 characters (including spaces), and the description can be up to 400 characters (including spaces).</h1>
+        <br>
+        <p>Please enter the task's data</p>
+        <form  action ="" method="post">
+            {% csrf_token %}
+            
+            {{form.as_p }}
+            <input style="font-size:25px;display:inline;" type="submit" value="Submit">
+            
+        </form>
+    </div>
+{% endblock %}
+
+

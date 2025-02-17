@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Update
+{% endblock %}
+
+{% block content %}
+    <h1>Here, you can see all your tasks, and their status, completed or not.</h1>
+    <br>
+
+    {% if all_tasks %}
+        <ul>
+        {% for task in all_tasks %}
+            <p style="font-size:20px; display:inline; color:red;">➡</p>
+            <p style="font-size: 22px; font-weight: bold;  display: inline;">Task name:</p>
+            <p style="font-size: 20px; display: inline;">{{task.task_name  }}</p>
+            <p style="font-size:22px; display:inline; color:red;"> ][  </p>
+        
+            <p style="font-size: 21px; font-weight: bold; display: inline; margin-left: 2px;">Description:</p>
+            <p style="font-size: 20px;  display: inline;">{{ task.description}}</p>
+            <p style="font-size:22px; display:inline; color:red;"> ][  </p>
+        
+            {% if task.completed == 0 %}
+                <p style="font-size: 22px; font-weight: bold;  display: inline; margin-left: 2px;">Status:</p>
+                <p style="font-size: 20px; display: inline;">Not completed</p>
+                
+            {% else %}
+                <p style="font-size: 22px; font-weight: bold;  display: inline; margin-left: 2px;">Status:</p>
+                <p style="font-size: 20px; display: inline;">Completed</p>
+            
+            {% endif %}
+            
+            
+            <br>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p style="font-size:23px;">No tasks have been added yet.</p>
+    {% endif %}
+    
+{% endblock %}

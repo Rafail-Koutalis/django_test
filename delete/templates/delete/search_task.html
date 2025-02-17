@@ -1,0 +1,26 @@
+{% extends 'layout.html'%}
+    {% block content %}
+    {% for message in messages %}
+        <p style="font-size: 20px; display:inline; color : red;">!!</p>
+        <p style="font-size: 20px; display:inline; color : white;">
+            {{ message }}
+        </p>
+        <p style="font-size: 20px; display:inline; color : red;">!!</p>
+    {% endfor %}
+
+               
+    <form style="font-size:30px;" method="POST">
+        {% csrf_token %}
+        <h1>Here you can delete the form of your choosing.</h1>
+        <br>
+        <p style="font-size:25px;">Please enter the exact name of the task you want to search for,</p>
+        <p style="font-size:23px;">to delete all its info.</p>
+        <p style="font-size:20px;">To delete all tasks at once, type 'all'.</p>
+    
+        <br>
+        {{form}}
+        <br>
+        <input style="display: inline; font-size:25px; " type="submit">
+    </form>
+
+{% endblock %}

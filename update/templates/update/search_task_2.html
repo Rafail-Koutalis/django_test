@@ -1,0 +1,26 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+    {% for message in messages %}
+        <div style="font-size: 20px; display:inline; color : red;">!!!</div>
+        <div style="font-size:20px; color:white; display:inline;">
+            {{ message }}
+        </div>
+        <div style="font-size: 20px; display:inline; color : red;">!!!</div>
+        <br>
+    {% endfor %}
+
+               
+    <form style="font-size:30px;" method="POST">
+        {% csrf_token %}
+        
+        <br>
+        <p style="font-size:25px;">Please enter the EXACT name of the task you want to search for,</p>
+        <p style="font-size:23px;">in order to update its description or completion.</p>
+        <br>
+            {{form}}
+        <br>
+        <input style="display: inline; font-size:25px; " type="submit">
+    </form>
+
+{% endblock %}
